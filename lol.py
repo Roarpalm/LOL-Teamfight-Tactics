@@ -276,7 +276,7 @@ def main(people, couple):
     return names, couples
 
 # 人口等级
-people = 6
+people = 8
 all_couples = itertools.combinations(all_heroes, people)
 
 def eight():
@@ -292,14 +292,13 @@ def save_and_run():
     '''运行并写入文件'''
     n = 0
     with open('lol.txt', 'a', encoding='utf-8') as f:
-        pbar = tqdm(total=eight())
-        for x in all_couples:
-            pbar.update(1)
-            names, couple = main(people, x)
-            if couple >= n:
-                n = couple
-                f.write(f'{str(names)}:{couple}\n')
-        pbar.close()
+        with tqdm(total=eight()) as pbar:
+            for x in all_couples:
+                pbar.update(1)
+                names, couple = main(people, x)
+                if couple >= n:
+                    n = couple
+                    f.write(f'{str(names)}:{couple}\n')
 save_and_run()
 
 print(f'用时{int((time()-start) // 60)}分{int((time()-start) % 60)}秒')
