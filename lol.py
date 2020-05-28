@@ -276,7 +276,7 @@ def main(people, couple):
     return names, couples
 
 # 人口等级
-people = 8
+people = 9
 all_couples = itertools.combinations(all_heroes, people)
 
 def eight():
