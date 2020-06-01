@@ -292,7 +292,7 @@ def save_and_run():
     '''运行并写入文件'''
     n = 0
     with open('lol.txt', 'a', encoding='utf-8') as f:
-        with tqdm(total=eight()) as pbar:
+        with tqdm(total=eight(), ncols=85) as pbar:
             for x in all_couples:
                 pbar.update(1)
                 names, couple = main(people, x)
