@@ -8,15 +8,15 @@ from tqdm import tqdm
 start = time()
 class Hero():
     '''英雄属性'''
-    def __init__(self, grade, name, phyle, profession):
+    def __init__(self, cost, name, origin, class_):
         # 等级
-        self.grade = grade
+        self.cost = cost
         # 名称
         self.name = name
         # 种族
-        self.phyle = phyle
+        self.origin = origin
         # 职业
-        self.profession = profession
+        self.class_ = class_
 
 崔斯特 = Hero(1, '崔斯特', '未来战士', '法师')
 凯特琳 = Hero(1, '凯特琳', '未来战士', '狙神')
@@ -163,57 +163,57 @@ def main(people, couple):
     names = []
     for i in couple:
         if people == 4:
-            if i.grade >= 4 or i.grade == 5:
+            if i.cost >= 4 or i.cost == 5:
                 return '', 0
         if people == 5:
-            if i.grade == 5:
+            if i.cost == 5:
                 return '', 0
         if people == 6:
-            if i.grade == 5:
+            if i.cost == 5:
                 return '', 0
         names.append(i.name)
-        if i.phyle == '星之守护者':
+        if i.origin == '星之守护者':
             星之守护者 += 1
-        if i.phyle == '银河魔装机神':
+        if i.origin == '银河魔装机神':
             银河魔装机神 += 1
-        if i.phyle == '星神':
+        if i.origin == '星神':
             星神 += 1
-        if i.phyle == '奥德赛':
+        if i.origin == '奥德赛':
             奥德赛 += 1
-        if i.phyle == '未来战士':
+        if i.origin == '未来战士':
             未来战士 += 1
-        if i.phyle == '太空海盗':
+        if i.origin == '太空海盗':
             太空海盗 += 1
-        if i.phyle == '源计划':
+        if i.origin == '源计划':
             源计划 += 1
-        if i.phyle == '暗星':
+        if i.origin == '暗星':
             暗星 += 1
-        if i.phyle == '战地机甲':
+        if i.origin == '战地机甲':
             战地机甲 += 1
-        if i.phyle == '宇航员':
+        if i.origin == '宇航员':
             宇航员 += 1
 
-        if i.profession == '剑士':
+        if i.class_ == '剑士':
             剑士 += 1
-        if i.profession == '爆破专家':
+        if i.class_ == '爆破专家':
             爆破专家 += 1
-        if i.profession == '刺客':
+        if i.class_ == '刺客':
             刺客 += 1
-        if i.profession == '斗士':
+        if i.class_ == '斗士':
             斗士 += 1
-        if i.profession == '法师':
+        if i.class_ == '法师':
             法师 += 1
-        if i.profession == '圣盾使':
+        if i.class_ == '圣盾使':
             圣盾使 += 1
-        if i.profession == '狙神':
+        if i.class_ == '狙神':
             狙神 += 1
-        if i.profession == '秘术师':
+        if i.class_ == '秘术师':
             秘术师 += 1
-        if i.profession == '破法战士':
+        if i.class_ == '破法战士':
             破法战士 += 1
-        if i.profession == '强袭枪手':
+        if i.class_ == '强袭枪手':
             强袭枪手 += 1
-        if i.profession == '重装战士':
+        if i.class_ == '重装战士':
             重装战士 += 1
 
     #print(names)
