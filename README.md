@@ -1,3 +1,11 @@
+## chess.py
+
+爬取 [https://lolchess.gg](https://lolchess.gg/statistics/meta/deck/MA) 的吃鸡阵容，并稍作统计
+
+## lol.py
+
+统计各人口的组合种类
+
 运行速度有点慢
 
 计算在M个选项中选N个不重复的选项有多少种组合方式的公式为
@@ -91,3 +99,6 @@ len(list(itertools.combinations(all_heroes, people)))
 季中大改确实真香！赌狗阵容出现的概率和吃鸡的概率大幅下降。刺客也不热门了。
 
 只是圣盾龙王和厄加特强到无解，该削。
+
+#### 10.13版本更新：
+战地太火了，其他阵容太固定了，不好玩了。
