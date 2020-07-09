@@ -21,17 +21,6 @@ class Spider():
         self.header = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
         with open('lol.txt', 'a', encoding='utf-8') as f:
             f.write(datetime.now().strftime('%Y.%m.%d %H:%M:%S') + '\n\n') # 记录时间
-        self.源计划 = 0
-        self.重装 = 0
-        self.斗枪 = 0
-        self.奥德赛 = 0
-        self.宇航员 = 0
-        self.机甲 = 0
-        self.战地 = 0
-        self.法师 = 0
-        self.剑士 = 0
-        self.狙神 = 0
-        self.圣盾 = 0
 
     def count(self, couple):
         '''统计羁绊组合'''
@@ -112,15 +101,12 @@ class Spider():
         num = 银河魔装机神 // 3
         if num:
             couples.append(f'{银河魔装机神}银河魔装机神')
-            self.机甲 += 1
         num = 星神 // 2
         if num:
             couples.append(f'{星神}星神')
         num = 奥德赛 // 3
         if num:
             couples.append(f'{奥德赛}奥德赛')
-            if num >= 2:
-                self.奥德赛 += 1
 
         num = 未来战士 // 2
         if num:
@@ -131,26 +117,19 @@ class Spider():
         num = 源计划 // 3
         if num:
             couples.append(f'{源计划}源计划')
-            if num >= 2:
-                self.源计划 += 1
         num = 暗星 // 2
         if num:
             couples.append(f'{暗星}暗星')
         num = 战地机甲 // 2
         if num:
             couples.append(f'{战地机甲}战地机甲')
-            if num >= 2:
-                self.战地 += 1
         num = 宇航员 // 3
         if num:
             couples.append(f'{宇航员}宇航员')
-            self.宇航员 += 1
 
         num = 剑士 // 3
         if num:
             couples.append(f'{剑士}剑士')
-            if num >= 2:
-                self.剑士 += 1
         num = 爆破专家 // 2
         if num:
             couples.append(f'{爆破专家}爆破专家')
@@ -160,23 +139,15 @@ class Spider():
         num = 斗士 // 2
         if num:
             couples.append(f'{斗士}斗士')
-            if num >= 2:
-                self.斗枪 += 1
         num = 法师 // 2
         if num:
             couples.append(f'{法师}法师')
-            if num >= 2:
-                self.法师 += 1
         num = 圣盾使 // 2
         if num:
             couples.append(f'{圣盾使}圣盾使')
-            if num >= 2:
-                self.圣盾 += 1
         num = 狙神 // 2
         if num:
             couples.append(f'{狙神}狙神')
-            if num >= 2:
-                self.狙神 += 1
         num = 秘术师 // 2
         if num:
             couples.append(f'{秘术师}秘术师')
@@ -189,8 +160,6 @@ class Spider():
         num = 重装战士 // 2
         if num:
             couples.append(f'{重装战士}重装战士')
-            if num >= 2:
-                self.重装 += 1
 
         return names, couples
 
@@ -203,7 +172,7 @@ class Spider():
         html = response.content.decode('utf-8')
         tree = etree.HTML(html)
         for n in range(1,26):
-            galaxy = tree.xpath(f'//*[@id="wrapper"]/div/div[7]/div[{n}]/div[1]/div[1]/div[2]/text()')[0]
+            galaxy = tree.xpath(f'//*[@id="wrapper"]/div/div[8]/div[{n}]/div[1]/div[1]/div[2]/text()')[0]
             galaxy = str(galaxy).replace(' ', '').replace('\n', '')
             if galaxy == 'NormalGalaxy':
                 galaxy = '普通星系'
@@ -215,16 +184,16 @@ class Spider():
                 galaxy = '妮蔻星系'
             if galaxy == 'TreasureTrove':
                 galaxy = '战利品星系'
-            if galaxy == 'LittlerLegends':
-                galaxy = '小小星系'
+            if galaxy == 'DwarfPlanet':
+                galaxy = '压缩星系'
             if galaxy == 'GalacticArmory':
                 galaxy = '军械库星系'
-            if galaxy == 'SuperdenseGalaxy':
+            if galaxy == 'Superdense':
                 galaxy = '自然之力星系'
             if galaxy == 'StarCluster':
                 galaxy = '2星选秀星系'
 
-            names = tree.xpath(f'//*[@id="wrapper"]/div/div[7]/div[{n}]/div[1]/div[4]/div/div/img/@alt')
+            names = tree.xpath(f'//*[@id="wrapper"]/div/div[8]/div[{n}]/div[1]/div[4]/div/div/img/@alt')
             couple = []
             for i in names:
                 if i == 'TwistedFate':
@@ -408,19 +377,9 @@ class Spider():
                 for i in couples:
                     f.write(i + ' ')
                 f.write('\n\n')
-
-        print(f'源计划：{self.源计划}')
-        print(f'重装：{self.重装}')
-        print(f'奥德赛：{self.奥德赛}')
-        print(f'机甲：{self.机甲}')
-        print(f'斗枪：{self.斗枪}')
-        print(f'宇航员：{self.宇航员}')
-        print(f'战地：{self.战地}')
-        print(f'法师：{self.法师}')
-        print(f'剑士：{self.剑士}')
-        print(f'狙神：{self.狙神}')
         
 if __name__ == "__main__":
     print('开始运行...')
     spider = Spider()
     spider.get_name()
+    print('运行完毕')

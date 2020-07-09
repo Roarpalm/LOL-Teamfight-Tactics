@@ -119,6 +119,7 @@ all_heroes = [
     索拉卡,
     提莫,
     艾瑞莉娅,
+    锐雯,
     孙悟空,
     菲兹,
     维克托,
@@ -285,7 +286,7 @@ def main(people, couple):
     return names, couples
 
 # 人口等级
-people = 9
+people = 6
 all_couples = itertools.combinations(all_heroes, people)
 
 def eight():
@@ -300,7 +301,7 @@ def eight():
 def save_and_run():
     '''运行并写入文件'''
     n = 0
-    with open('lol.txt', 'a', encoding='utf-8') as f:
+    with open(f'lol{people}.txt', 'a', encoding='utf-8') as f:
         with tqdm(total=eight(), ncols=85) as pbar:
             for x in all_couples:
                 pbar.update(1)
