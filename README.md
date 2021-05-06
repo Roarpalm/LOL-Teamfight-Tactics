@@ -72,7 +72,7 @@ len(list(itertools.combinations(all_heroes, people)))
 
 - - - -
 
-#### 写在11.9版本的吐槽
+# 写在11.9版本的吐槽
 
 新赛季新主题新羁绊新组合总是令人兴奋，但很快就被屎一样的平衡浇灭热情
 
@@ -107,7 +107,7 @@ len(list(itertools.combinations(all_heroes, people)))
 
 - - - -
 
-#### 写在 10.11 版本的吐槽
+# 写在 10.11 版本的吐槽
 
 先说结论：这是一个不好玩的版本，这是一个僵化的版本，这是一个运气大于操作的版本。
 
