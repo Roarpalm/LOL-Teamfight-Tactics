@@ -377,7 +377,7 @@ class Spider():
                 for i in couples:
                     f.write(i + ' ')
                 f.write('\n\n')
-        
+
 if __name__ == "__main__":
     print('开始运行...')
     spider = Spider()
